@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<rfc
+    category="std"
+    docName="draft-mahesh-netmod-ni-extensions-latest"
+    ipr="trust200902"
+    consensus="true"
+    submissionType="IETF">
+  <?rfc toc="yes"?>
+
+  <front>
+    <title abbrev="NI Extensions">YANG Model for Extensions to Network Instance</title>
+
+    <author fullname="Mahesh Jethanandani" initials="M."
+            surname="Jethanandani">
+      <organization>Arrcus, Inc.</organization>
+      <address>
+        <postal>
+          <street/>
+          <city/>
+          <region/>
+          <code/>
+          <country/>
+        </postal>
+        <phone/>
+        <facsimile/>
+        <email>mjethanandani@gmail.com</email>
+        <uri/>
+      </address>
+    </author>
+
+    <author fullname="Acee Lindem" initials="A." surname="Lindem">
+      <organization>Arrcus</organization>
+
+      <address>
+        <postal>
+          <street/>
+
+          <city/>
+
+          <region>CA</region>
+
+          <country>USA</country>
+        </postal>
+
+        <email>keyur@arrcus.com</email>
+      </address>
+    </author>
+
+    <author fullname="Jeffrey Haas" initials="J." surname="Haas">
+      <organization>Juniper Networks</organization>
+
+      <address>
+        <postal>
+          <street/>
+
+          <city/>
+
+          <region/>
+
+          <code/>
+
+          <country/>
+        </postal>
+
+        <phone/>
+
+        <facsimile/>
+
+        <email>jhaas@pfrc.org</email>
+
+        <uri/>
+      </address>
+    </author>
+
+    <date/>
+    <area>Management</area>
+    <workgroup>Network Modeling</workgroup>
+    <keyword>network instance</keyword>
+    <keyword>yang</keyword>
+
+    <abstract>
+      <t>This document defines an extension to YANG Data Model for
+      Network Instance (RFC8529). The extension includes a definition
+      for Route Distinguisher.</t>
+    </abstract>
+  </front>
+
+  <middle>
+    <section anchor="intro" title="Introduction">
+      <t>
+	This document defines a <xref target="RFC7950">YANG
+	1.1</xref> data model to extend the <xref
+	target="RFC8529">YANG Data Model for Network Instance</xref>
+	model. That extension includes a definition for Route
+	Distinguisher (RD).
+      </t>
+
+      <t>
+	The YANG model defined in this document is <xref
+	target="RFC8342">Network Management Datastore
+	Architecture</xref> compliant.
+      </t>
+      
+      <section anchor="motivation" title="Motivation">
+        <t>Virtual Routing and Forwarding (VRF) allows IP address
+        spaces to be reused among other isolated routing domains. A
+        VRF is also referred to as a Network Instance (NI). By
+        assigning each customer its own VRF the overlapping networks
+        are kept isolated from one another.</t>
+
+	<t>This works well till such time the isolated networks have
+	to communicate with the external world. To keep track of which
+	route belongs to which VRF/customer, RDs are used. As the name
+	implies, a RD distinguishes routes that belong to one VRF from
+	routes that belong to another VRF. That is achieved by
+	prepending a route with a unique number that belongs to a
+	particular VRF or customer.</t>
+
+        <t>This model augments <xref target="RFC8529">YANG Data Model
+        for Network Instance</xref> to add the definition for RD.</t>
+      </section>
+
+      <section title="Note to RFC Editor">
+        <t>This document uses several placeholder values throughout the
+        document. Please replace them as follows and remove this note before
+        publication.</t>
+
+        <t>RFC XXXX, where XXXX is the number assigned to this document at the
+        time of publication.</t>
+
+        <t>YYYY-MM-DD with the actual date of the publication of this
+        document.</t>
+      </section>
+
+      <section title="Terminology">
+        <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+        "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+        "OPTIONAL" in this document are to be interpreted as described in
+        <xref target="RFC2119">BCP 14 </xref> <xref target="RFC8174"/> when,
+        and only when, they appear in all capitals, as shown here.</t>
+      </section>
+
+      <section title="Abbreviations">
+        <texttable>
+          <ttcol>Abbreviation</ttcol>
+
+          <ttcol/>
+
+          <c>NI</c>
+          <c>Network Instance</c>
+
+	  <c>NMDA</c>
+	  <c>Network Management Datastore Architecture</c>
+	  
+          <c>RD</c>
+          <c>Route Distinguisher</c>
+
+          <c>VRF</c>
+          <c>Vitual Routing and Forwarding</c>
+
+        </texttable>
+      </section>
+    </section>
+
+    <section anchor="module" title="YANG module">
+      <section anchor="tree" title="Tree Diagrm">
+	<t>
+	  This section provides an abridged tree diagram for the YANG
+	  model defined in this document. Annotations used in the
+	  diagram are defined in <xref target="RFC8340">YANG Tree
+	  Diagrams</xref>.
+	</t>
+	<figure>
+          <artwork><![CDATA[
+	  INSERT_TEXT_FROM_FILE(../bin/ietf-ni-extensions@YYYY-MM-DD-sub-tree.txt)
+	  ]]></artwork>
+	</figure>
+      </section>
+
+      <section anchor="description" title="Description">
+	<t>This module augments the <xref target="RFC8529">YANG Data
+	Model for Network Instances</xref> to add additional
+	capabilities in the model. An example of that extension is the
+	addition of RD.</t>
+      </section>
+
+      <section title="Network Instance Extensions YANG module">
+	<t>The YANG model references the following YANG models.
+	<ul>
+	  <li><xref target="RFC4364">BGP/MPLS IP Virtual Private
+	  Networks (VPNs)</xref>
+	  </li>
+	  <li><xref target="RFC8294">Common YANG Data Types for the
+	  Routing Area</xref>
+	  </li>
+	  <li><xref target="RFC8529">YANG Data Model for Network
+	  Instances</xref> </li>
+	</ul>
+	</t>
+
+        <t>
+          <figure>
+            <artwork><![CDATA[
+	    <CODE BEGINS> file "ietf-ni-extensions@YYYY-MM-DD.yang"
+	    INSERT_TEXT_FROM_FILE(../bin/ietf-ni-extensions@YYYY-MM-DD.yang)
+	    <CODE ENDS>
+	    ]]>
+	    </artwork>
+          </figure>
+        </t>
+      </section>
+    </section>
+
+    <section title="Security Considerations">
+      <t>The YANG module specified in this document defines a schema for data
+      that is designed to be accessed via network management protocols such as
+      <xref target="RFC6241">NETCONF</xref> or <xref
+      target="RFC8040">RESTCONF</xref>. The lowest NETCONF layer is the secure
+      transport layer, and the mandatory-to-implement secure transport is
+      <xref target="RFC6242">Secure Shell (SSH)</xref>. The lowest RESTCONF
+      layer is HTTPS, and the mandatory-to-implement secure transport is <xref
+      target="RFC8446">TLS</xref>. The <xref target="RFC8341">NETCONF Access
+      Control Model (NACM) </xref> provides the means to restrict access for
+      particular NETCONF or RESTCONF users to a preconfigured subset of all
+      available NETCONF or RESTCONF protocol operations and content.</t>
+
+      <t>There are a number of data nodes defined in this YANG module that are
+      writable/creatable/deletable (i.e., config true, which is the default).
+      These data nodes may be considered sensitive or vulnerable in some
+      network environments. Write operations (e.g., edit-config) to these data
+      nodes without proper protection can have a negative effect on network
+      operations. Some of the subtrees and data nodes and their
+      sensitivity/vulnerability are described here.</t>
+
+      <ul>
+	<li> The attribute 'rd'. If a user is allowed to change this
+	attribute, it will have the net effect of redirecting routes
+	to the incorrect VRF or overriding a correctly learnt route.
+	</li>
+      </ul>
+
+      <t>Some of the readable data nodes in this YANG module may be
+      considered sensitive or vulnerable in some network
+      environments. It is thus important to control read access (e.g.,
+      via get, get-config, or notification) to these data nodes. Some
+      of the subtrees and data nodes and their
+      sensitivity/vulnerability are:</t>
+
+      <ul>
+	<li> The attribute 'auto-rd' tells a user what the
+	automatically assinged RD value is. Having that information
+	may allow a malicious user to launch an attack to try to
+	change the value.
+	</li>
+      </ul>
+
+      <t>Some of the RPC operations in this YANG module may be considered
+      sensitive or vulnerable in some network environments. It is thus
+      important to control access to these operations. These are the
+      operations and their sensitivity/vulnerability:</t>
+
+      <t>There are no such nodes in this model.</t>
+    </section>
+
+    <section title="IANA Considerations">
+      <t>This document registers one URIs and one YANG module.</t>
+
+      <section title="URI Registration">
+        <t>Following the format in the <xref target="RFC3688">IETF XML
+        registry</xref>, the following registration is requested to
+        be made:
+	<figure>
+          <artwork><![CDATA[
+          URI:urn:ietf:params:xml:ns:yang:ietf-ni-extensions
+          ]]></artwork>
+        </figure>
+	</t>
+
+        <t>Registrant Contact: The IESG. XML: N/A, the requested URI
+        is an XML namespace.</t>
+      </section>
+
+      <section title="YANG Module Name Registration">
+        <t>This document registers one YANG module in the YANG Module
+        Names registry <xref target="RFC6020">YANG</xref>.
+	</t>
+
+        <t>
+	  <figure>
+            <artwork><![CDATA[
+	    name: ietf-ni-extensions
+	    namespace: urn:ietf:params:xml:ns:yang:ietf-ni-extensions
+	    prefix: ni-ext
+	    reference: RFC XXXX
+	    ]]>
+	    </artwork>
+          </figure>
+	</t>
+      </section>
+    </section>
+
+    <section title="Acknowledgements">
+    </section>
+  </middle>
+
+  <back>
+    <references title="Normative references">
+      <?rfc include='reference.RFC.2119.xml'?>
+      <?rfc include='reference.RFC.3688.xml'?>
+      <?rfc include='reference.RFC.4364.xml'?>
+      <?rfc include='reference.RFC.6020.xml'?>
+      <?rfc include='reference.RFC.6241.xml'?>
+      <?rfc include='reference.RFC.6242.xml'?>
+      <?rfc include='reference.RFC.7950.xml'?>
+      <?rfc include='reference.RFC.8040.xml'?>
+      <?rfc include='reference.RFC.8174.xml'?>
+      <?rfc include='reference.RFC.8294.xml'?>
+      <?rfc include='reference.RFC.8341.xml'?>
+      <?rfc include='reference.RFC.8342.xml'?>
+      <?rfc include='reference.RFC.8446.xml'?>
+      <?rfc include='reference.RFC.8529.xml'?>
+    </references>
+
+    <references title="Informative references">
+      <?rfc include='reference.RFC.8340.xml'?>
+    </references>
+
+    <section title="Examples">
+      <t>
+	This section tries to show some examples in how the model can
+	be used.
+      </t>
+
+      <section anchor="assigning-rd" title="Assigning a RD">
+        <t>
+	  This example shows how to configure a RD to a given NI.
+	</t>
+
+        <t>
+	  <figure>
+            <artwork><![CDATA[
+	    INSERT_TEXT_FROM_FILE(../src/yang/example-ni-configuration-a.1.0.xml,68)
+
+	    ]]>
+	    </artwork>
+        </figure></t>
+      </section>
+    </section>
+    
+    <section title="Complete configuration tree diagram">
+      <t>
+	Here is a complete tree diagram for the configuration and
+	operational part of the model.
+      </t>
+
+      <t>
+	<figure>
+          <artwork><![CDATA[
+	  INSERT_TEXT_FROM_FILE(../bin/ietf-ni-extensions@YYYY-MM-DD-tree.txt)
+
+	  ]]>
+	  </artwork>
+	</figure>
+      </t>
+    </section>
+  </back>
+</rfc>

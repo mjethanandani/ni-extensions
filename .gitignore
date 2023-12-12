@@ -1,0 +1,8 @@
+# All tmp files
+*~
+
+# Temp build dir
+bin
+
+# Temp build files
+draft/draft-mahesh-netmod-ni-extensions-*.*

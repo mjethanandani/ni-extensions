@@ -12,7 +12,7 @@ module ietf-ni-extensions {
   import ietf-network-instance {
     prefix ni;
     reference
-      "RFC 8529: YANG Data Model for Network Instance.";
+      "RFC 8529: YANG Data Model for Network Instances.";
   }
 
   organization
@@ -57,6 +57,9 @@ module ietf-ni-extensions {
   }
 
   grouping rd {
+    description
+      "Grouping for Route Distinguisher extention.";
+
     container rd {
       description
         "Route distinguisher parameters.";
