@@ -339,11 +339,11 @@
         <t>
 	  <figure>
             <artwork><![CDATA[
-	    INSERT_TEXT_FROM_FILE(../src/yang/example-ni-configuration-a.1.0.xml,68)
-
+	    INSERT_TEXT_FROM_FILE(../src/yang/example-ni-extensions-a.1.1.xml,68)
 	    ]]>
 	    </artwork>
-        </figure></t>
+          </figure>
+	</t>
       </section>
     </section>
     

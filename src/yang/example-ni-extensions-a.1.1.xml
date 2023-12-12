@@ -1,0 +1,34 @@
+<!--
+This example shows how to configure a RD in a NI.
+-->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<network-instances
+    xmlns="urn:ietf:params:xml:ns:yang:ietf-network-instance">
+  <network-instance>
+    <name>vrf-red</name>
+    <vrf-root>
+      <routing
+          xmlns="urn:ietf:params:xml:ns:yang:ietf-routing">
+        <router-id>192.0.2.1</router-id>
+      </routing>
+    </vrf-root>
+    <rd
+        xmlns="urn:ietf:params:xml:ns:yang:ietf-ni-extensions">
+      <rd>0:65000:100</rd>
+    </rd>
+  </network-instance>
+  <network-instance>
+    <name>vrf-blue</name>
+    <vrf-root>
+      <routing
+          xmlns="urn:ietf:params:xml:ns:yang:ietf-routing">
+        <router-id>192.0.2.2</router-id>
+      </routing>
+    </vrf-root>
+    <rd
+        xmlns="urn:ietf:params:xml:ns:yang:ietf-ni-extensions">
+      <rd>0:65000:200</rd>
+    </rd>
+  </network-instance>
+</network-instances>

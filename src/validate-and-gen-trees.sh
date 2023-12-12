@@ -59,7 +59,7 @@ rm ../bin/*-sub-tree.txt.tmp
 echo "Validating examples"
 
 # Validate examples.
-for i in yang/example-ni-extensions-configuration-a.1.*.xml
+for i in yang/example-ni-extensions-a.1.*.xml
 do
     name=$(echo $i | cut -f 1-3 -d '.')
     echo "Validating $name.xml"
