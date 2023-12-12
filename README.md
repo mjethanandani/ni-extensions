@@ -56,8 +56,7 @@ Once all the tools are installed the following commands will build the draft
 ## Build using Docker
 
 In one does not want to be bothered with all the tools necessary to build
-the draft, one can use Docker. Make sure Docker is installed and in the
-root of the repository type
+the draft, one can use Docker. Make sure Docker is installed and is running. Then type
 
 `% make`
 
