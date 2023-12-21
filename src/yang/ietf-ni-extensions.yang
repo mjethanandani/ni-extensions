@@ -26,7 +26,7 @@ module ietf-ni-extensions {
 
   description
     "This module augments the Network Instance (NI) YANG model 
-     to add support for configuration of Route Distinguisher (RD).
+     to add support for configuration of a Route Distinguisher (RD).
 
      Copyright (c) 2023 IETF Trust and the persons identified as
      authors of the code.  All rights reserved.
@@ -58,7 +58,7 @@ module ietf-ni-extensions {
 
   grouping rd {
     description
-      "Grouping for Route Distinguisher extention.";
+      "Grouping for Route Distinguisher extension.";
 
     container rd {
       description

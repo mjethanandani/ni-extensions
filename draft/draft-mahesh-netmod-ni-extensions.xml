@@ -29,19 +29,16 @@
     </author>
 
     <author fullname="Acee Lindem" initials="A." surname="Lindem">
-      <organization></organization>
+      <organization>LabN Consulting, L.L.C.</organization>
 
       <address>
         <postal>
-          <street/>
-
-          <city/>
-
-          <region>CA</region>
-
+          <street>301 Midenhall Way</street>
+          <city>Cary</city>
+          <region>NC</region>
           <country>USA</country>
+          <code>27513</code>
         </postal>
-
         <email>acee.ietf@gmail.com</email>
       </address>
     </author>
@@ -79,7 +76,7 @@
     <keyword>yang</keyword>
 
     <abstract>
-      <t>This document defines an extension to YANG Data Model for
+      <t>This document defines an extension to the YANG Data Model for
       Network Instance (RFC8529). The extension includes a definition
       for Route Distinguisher.</t>
     </abstract>
@@ -91,7 +88,7 @@
 	This document defines a <xref target="RFC7950">YANG
 	1.1</xref> data model to extend the <xref
 	target="RFC8529">YANG Data Model for Network Instance</xref>
-	model. That extension includes a definition for Route
+	model. The extension includes a definition for Route
 	Distinguisher (RD).
       </t>
 
@@ -102,16 +99,16 @@
       </t>
       
       <section anchor="motivation" title="Motivation">
-        <t>Virtual Routing and Forwarding (VRF) allows IP address
-        spaces to be reused among other isolated routing domains. A
+        <t>A Virtual Routing and Forwarding (VRF) allows multiple overlapping
+        IP address spaces to be used in isolated routing domains. A
         VRF is also referred to as a Network Instance (NI). By
-        assigning each customer its own VRF the overlapping networks
-        are kept isolated from one another.</t>
+        assigning each customer its own VRF, the overlapping networks
+        are isolated from one another.</t>
 
-	<t>This works well till such time the isolated networks have
+	<t>This works well till such time when the isolated networks have
 	to communicate with the external world. To keep track of which
 	route belongs to which VRF/customer, RDs are used. As the name
-	implies, a RD distinguishes routes that belong to one VRF from
+	implies, an RD distinguishes routes that belong to one VRF from
 	routes that belong to another VRF. That is achieved by
 	prepending a route with a unique number that belongs to a
 	particular VRF or customer.</t>
@@ -181,7 +178,7 @@
 	<t>This module augments the <xref target="RFC8529">YANG Data
 	Model for Network Instances</xref> to add additional
 	capabilities in the model. An example of that extension is the
-	addition of RD.</t>
+	addition of an RD.</t>
       </section>
 
       <section title="Network Instance Extensions YANG module">
@@ -233,7 +230,7 @@
       sensitivity/vulnerability are described here.</t>
 
       <ul>
-	<li> The attribute 'rd'. If a user is allowed to change this
+	<li> The attribute 'rd'. If an adversary is allowed to change this
 	attribute, it will have the net effect of redirecting routes
 	to the incorrect VRF or overriding a correctly learnt route.
 	</li>
@@ -247,10 +244,10 @@
       sensitivity/vulnerability are:</t>
 
       <ul>
-	<li> The attribute 'auto-rd' tells a user what the
-	automatically assinged RD value is. Having that information
-	may allow a malicious user to launch an attack to try to
-	change the value.
+	<li> The attribute 'auto-rd' reveals to an adversary the value of
+	the automatically assigned RD. Having that information
+	may allow a malicious user to launch an attack on routes within
+        a VRF or attempt to change the RD value.
 	</li>
       </ul>
 
