@@ -64,6 +64,8 @@ or
 
 `% make container`
 
+in the root of the git repository.
+
 ### Output of Docker build
 
 Since Docker mounts the host file system while building this draft, it will deposit the output of the build on the host file system.
